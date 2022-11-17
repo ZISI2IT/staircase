@@ -1,19 +1,20 @@
 from flask import Flask
-# Create an instance of the Flask class that is the WSGI application.
-# The first argument is the name of the application module or package,
-# typically __name__ when using a single module.
+ 
+# Flask constructor takes the name of
+# current module (__name__) as argument.
 app = Flask(__name__)
-
-# Flask route decorators map / and /hello to the hello function.
-# To add other resources, create functions that generate the page contents
-# and add decorators to define the appropriate resource locators for them.
-
+ 
+# The route() function of the Flask class is a decorator,
+# which tells the application which URL should call
+# the associated function.
 @app.route('/')
-@app.route('/hello')
-def hello():
-    # Render the page
-    return "Hello Python!"
-
+# ‘/’ URL is bound with hello_world() function.
+def hello_world():
+    return 'Hello World'
+ 
+# main driver function
 if __name__ == '__main__':
-    # Run the app server on localhost:4449
-    app.run('localhost', 4449)
+ 
+    # run() method of Flask class runs the application
+    # on the local development server.
+    app.run()
